@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace DataBase.Entities
 {
-    [Index(nameof(Name))]//робимо некластирізований індекс для поля Name (щоб швидко відпрацьовував пошук по цьому полю)
+    [Index(nameof(Name))]//якщо поле часто буде використовуватись для пошуку, то краще повісити на нього індекс
+                         //робимо некластирізований індекс для поля Name (щоб швидко відпрацьовував пошук по цьому полю)
                          //оголошується перед назвою класу (не на самій властивості)
+                         //некластирізований індекс може бути Unique  або не Unique. Властивість IsUnique = true
+                         //пошук з  IsUnique = true буде відпрацьовувати швидше
                          //якщо через FluentAPI:
                          //modelBuilder.Entity<Product>().HasIndex(p => p.Name)
 
@@ -26,10 +29,10 @@ namespace DataBase.Entities
         }
         public int Id { get; private set; }//робимо властивість readonly
 
-        [StringLength(200)]
+        [MaxLength(200)]
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
-        public decimal? PriceWithNDS { get; set; }
+        public decimal? PriceWithNds { get; set; }
 
         public decimal RawPrice { get; set; }
 

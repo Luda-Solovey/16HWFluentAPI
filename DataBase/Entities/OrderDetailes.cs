@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataBase.Entities
 {
@@ -17,7 +18,7 @@ namespace DataBase.Entities
         public Order MyOrder { get; set; } = new();
         public Product Product { get; set; } = new();
 
-        //public int Quantity { get; set; } = 1;  //значення за-замовчуванням. Тут коментую, бо прописано в FluentAPI
+        //[DefaultValue(1)] //значення за-замовчуванням. Тут коментую, бо прописано в FluentAPI
         public int Quantity { get; set; }
     }
 }

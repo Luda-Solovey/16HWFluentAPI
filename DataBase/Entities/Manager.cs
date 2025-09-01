@@ -12,23 +12,20 @@ namespace DataBase.Entities
     public class Manager
     {
         public Manager() { }
-        public Manager(string firstName)
-        {
-            FirstName = firstName;
-        }
 
         public Manager(string firstName, string lastName)
         {
             FirstName = firstName;
             LastName = lastName;
         }
+
         //[Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]//щоб значення гуіда на боці БД генерувалось автоматично
         public Guid Id { get; private set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
+        public string? AdditionalInformation { get; set; }
 
         public List<Order> Orders { get; set; } = new List<Order>();
-        public string? AdditionalInformation { get; set; }
     }
 }

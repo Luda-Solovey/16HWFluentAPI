@@ -21,14 +21,14 @@ namespace DataBase.Entities
         [Key]
         public Guid Id { get; private set; }
 
-        //[StringLength(100)]
+        [MaxLength(100)]
         public string Name { get; set; } = string.Empty;
 
-        //[StringLength(9)]
-        //[Column("ColumnName")] //називаємо в БД таблицю з телефонами як ColumnName, а не Phone
+        //[MaxLength(9)]
+        //[Column("PhoneName")] //називаємо в БД таблицю з телефонами як PhoneName, а не Phone
         public string? Phone { get; set; }
 
-        //[StringLength(25)]
+        //[MaxLength(25)]
         public string? EMail { get; set; }
         public List<Order>? Orders { get; set; } = null;
     }
